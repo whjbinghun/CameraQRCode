@@ -1,4 +1,4 @@
-## 介绍
+﻿## 介绍
 
 JQQRCode，是一个给Qt开发的，二维码相关功能的封装。
 
@@ -30,7 +30,8 @@ qDebug() << qrCodeImage;
 
 理论上可以部署到任何Qt支持的平台上。
 
-注意：在iOS使用的时候，一定要给Info.plist加上NSCameraUsageDescription，不然程序一调用摄像头就崩溃
+注意：在iOS使用的时候，一定要给Info.plist加上NSCameraUsageDescription，不然程序一调用摄像头就崩溃。
+	需要去XCode的Info配置中添加Key：Privacy-Camera Usage Description，键值Value:1.0即可。
 
 本库源码均已开源在了GitHub上。
 
