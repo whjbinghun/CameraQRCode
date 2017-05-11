@@ -12,6 +12,11 @@
 *.gch
 *.pch
 
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
 # Fortran module files
 *.mod
 *.smod
@@ -47,3 +52,13 @@ CMakeLists.txt.user*
 
 ### macOS ###
 *.DS_Store
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
