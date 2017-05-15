@@ -24,6 +24,7 @@
 
 // JQLibrary import
 #include "JQQRCodeReader.h"
+#include <QQuickView>
 
 #ifdef QT_QML_LIB
 #   define JQQRCODEREADERFORQML_REGISTERTYPE( engine ) \
