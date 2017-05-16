@@ -64,7 +64,7 @@ public:
     ~JQQRCodeReader();
 
 public slots:
-    QString decodeImage(const QImage &image, const int &decodeType = ( int )DecodeQrCodeType);
+    QString decodeImage(QImage &image, const int &decodeType = ( int )DecodeQrCodeType);
 
 signals:
     void decodingStarted();
@@ -72,10 +72,6 @@ signals:
     void decodingFinished(bool succeeded);
 
     void tagFound(QString tag);
-
-private:
-    QSharedPointer< zxing::MultiFormatReader > decoder_;//QSharedPointer 智能指针
-    QSharedPointer< QSemaphore > semaphore_;//信号量
 };
 
 #endif//__JQQRCodeReader_h__
