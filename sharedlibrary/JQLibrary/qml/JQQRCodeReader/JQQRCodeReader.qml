@@ -32,7 +32,7 @@ Loader {
 
             signal tagFind(string tag)
 
-            JQQRCodeReaderForQmlManage {
+            JQQRCodeReaderForQmlManage {//JQQRCodeReader类
                 id: jqQRCodeReaderForQmlManage
                 decodeQrCodeType: jqQRCodeReader.decodeQrCodeType
 
@@ -56,7 +56,7 @@ Loader {
                 }
             }
 
-            Timer {
+            Timer {    //定时解析图片
                 id: timer
                 interval: 200
                 repeat: true
@@ -173,7 +173,7 @@ Loader {
                     height: 24
                     source: "qrc:/JQQRCodeReader/JQQRCodeReader/LightNeedle.png"
 
-                    PropertyAnimation {
+                    PropertyAnimation {  //属性动画
                         id: animationForLightNeedle
                         target: imageLightNeedle
                         property: "y"
@@ -204,7 +204,7 @@ Loader {
         }
     }
 
-    Timer {
+    Timer {             //定时关闭扫码图元
         id: timerForClose
         interval: 200
         running: false

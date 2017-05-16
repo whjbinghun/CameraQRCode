@@ -36,7 +36,7 @@
 #include "zxing/DecodeHints.h"
 #include "zxing/LuminanceSource.h"
 
-// CameraImageWrapper
+// CameraImageWrapper   图片包装
 class ImageWrapper: public zxing::LuminanceSource
 {
     Q_DISABLE_COPY( ImageWrapper )
@@ -140,12 +140,14 @@ JQQRCodeReader::~JQQRCodeReader()
     semaphore_->acquire( 1 );
 }
 
+//解码图片
 QString JQQRCodeReader::decodeImage(const QImage &image, const int &decodeType)
 {
-    semaphore_->acquire( 1 );
+    semaphore_->acquire( 1 );//acquire 获得
 
     zxing::Ref< zxing::Result > res;
-    QMetaObject::invokeMethod( this, "decodingStarted", Qt::QueuedConnection );
+    //如果type为Qt::DirectConnection，则为同步调用，若为Qt::QueuedConnection，则为异步调用;调用的方法为decodingStarted
+    QMetaObject::invokeMethod( this, "decodingStarted", Qt::QueuedConnection );//静态方法
 
     if( image.isNull() )
     {
@@ -167,7 +169,7 @@ QString JQQRCodeReader::decodeImage(const QImage &image, const int &decodeType)
         zxing::BinaryBitmap *bb = new zxing::BinaryBitmap( bz );
 
         zxing::Ref< zxing::BinaryBitmap > ref( bb );
-
+        //解码
         res = decoder_->decode( ref, ( zxing::DecodeHints )decodeType );
 
         QString string = QString( res->getText()->getText().c_str() );

@@ -36,6 +36,7 @@ JQQRCodeReaderForQmlManage::~JQQRCodeReaderForQmlManage()
     threadPool_->waitForDone();
 }
 
+//分析扫到的图元信息
 void JQQRCodeReaderForQmlManage::analysisItem(QQuickItem *item)
 {
     if ( quickItemGrabResult_ )
@@ -43,7 +44,7 @@ void JQQRCodeReaderForQmlManage::analysisItem(QQuickItem *item)
         return;
     }
 
-    quickItemGrabResult_ = item->grabToImage();//低于5.8的版本，拿到的图像是空的或者黑的
+    quickItemGrabResult_ = item->grabToImage();//低于5.8的版本，拿到的图像是空的或者黑的：grabToImage，抓取图像
 
     connect( quickItemGrabResult_.data(), &QQuickItemGrabResult::ready, [ this ]()
     {
@@ -73,7 +74,7 @@ void JQQRCodeReaderForQmlManage::analysisItem(QQuickItem *item)
 
             this->decodeImage( buf, this->decodeQrCodeType_ );
 
-            quickItemGrabResult_.reset();
+            quickItemGrabResult_.reset();//clear
         } );
     } );
 }

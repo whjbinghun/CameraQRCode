@@ -49,18 +49,20 @@ public:
 
 public slots:
     void analysisItem(QQuickItem *item);
+    inline int decodeQrCodeType() const
+    { return decodeQrCodeType_; }
+
+    inline void setDecodeQrCodeType(const int &newValue)
+    { if ( newValue == decodeQrCodeType_ ) { return; } decodeQrCodeType_ = newValue; }
 
 private:
     QSharedPointer< QThreadPool > threadPool_;
-    QSharedPointer< QQuickItemGrabResult > quickItemGrabResult_;
+    QSharedPointer< QQuickItemGrabResult > quickItemGrabResult_;//抓取图像的结果
 
-    // Property code start
-    private: int decodeQrCodeType_ = JQQRCodeReader::DecodeQrCodeType;
-    public: Q_SLOT inline int decodeQrCodeType() const
-    { return decodeQrCodeType_; }
-    public: Q_SLOT inline void setDecodeQrCodeType(const int &newValue)
-    { if ( newValue == decodeQrCodeType_ ) { return; } decodeQrCodeType_ = newValue; }
-    private:
+// Property code start
+private:
+    int decodeQrCodeType_ = JQQRCodeReader::DecodeQrCodeType;//默认设置为二维码类型
+private:
     // Property code end
 };
 

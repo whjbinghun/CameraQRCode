@@ -635,6 +635,7 @@ QRcode *QRcode_encodeInput(QRinput *input)
 	}
 }
 
+//字符串编码
 static QRcode *QRcode_encodeStringReal(const char *string, int version, QRecLevel level, int mqr, QRencodeMode hint, int casesensitive)
 {
 	QRinput *input;
@@ -668,6 +669,7 @@ static QRcode *QRcode_encodeStringReal(const char *string, int version, QRecLeve
 	return code;
 }
 
+//字符串编码
 QRcode *QRcode_encodeString(const char *string, int version, QRecLevel level, QRencodeMode hint, int casesensitive)
 {
 	return QRcode_encodeStringReal(string, version, level, 0, hint, casesensitive);

@@ -74,8 +74,8 @@ signals:
     void tagFound(QString tag);
 
 private:
-    QSharedPointer< zxing::MultiFormatReader > decoder_;
-    QSharedPointer< QSemaphore > semaphore_;
+    QSharedPointer< zxing::MultiFormatReader > decoder_;//QSharedPointer 智能指针
+    QSharedPointer< QSemaphore > semaphore_;//信号量
 };
 
 #endif//__JQQRCodeReader_h__

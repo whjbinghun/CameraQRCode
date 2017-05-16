@@ -26,6 +26,7 @@ Window {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: 40
+        wrapMode: Text.WordWrap
     }
 
     JQQRCodeReader {
